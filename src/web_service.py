@@ -33,7 +33,7 @@ def update_model():
 def accept_next_model():
     global current_model, next_model
     current_model = next_model
-    next_model = mlflow.sklearn.load_model("models:/boston-housing/staging")
+    next_model = mlflow.sklearn.load_model("models:/california-housing/staging")
     return jsonify({"status": "Next model accepted as current"})
 
 if __name__ == "__main__":

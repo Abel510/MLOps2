@@ -19,3 +19,9 @@ def test_update_model_endpoint():
         response = client.post("/update-model", json={"model_uri": model_uri})
         assert response.status_code == 200
         assert json.loads(response.data)["status"] == "Model updated successfully"
+
+def test_accept_next_model_endpoint():
+    with app.test_client() as client:
+        response = client.post("/accept-next-model")
+        assert response.status_code == 200
+        assert json.loads(response.data)["status"] == "Next model accepted as current"
